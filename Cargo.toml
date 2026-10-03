@@ -1,0 +1,42 @@
+[package]
+name = "pear-tower"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+
+## eth
+alloy = { version = "2.2", features = [
+    "full",
+    "provider-ws",
+    "pubsub",
+    "rpc-types-mev",
+    "provider-mev-api",
+    "rand",
+] }
+
+## reth p2p stack
+reth-network = { git = "https://github.com/paradigmxyz/reth", rev = "9d25749e3182bcefabb9920179bc91e64c4291d3", version = "2.4.1" }
+reth-transaction-pool = { git = "https://github.com/paradigmxyz/reth", rev = "9d25749e3182bcefabb9920179bc91e64c4291d3", version = "2.4.1", features = [
+    "test-utils",
+] }
+reth-storage-api = { git = "https://github.com/paradigmxyz/reth", rev = "9d25749e3182bcefabb9920179bc91e64c4291d3", version = "2.4.1" }
+reth-tasks = { git = "https://github.com/paradigmxyz/reth", rev = "9d25749e3182bcefabb9920179bc91e64c4291d3", version = "2.4.1" }
+reth-ethereum-primitives = { git = "https://github.com/paradigmxyz/reth", rev = "9d25749e3182bcefabb9920179bc91e64c4291d3", version = "2.4.1" }
+reth-primitives-traits = "0.5.2"
+reth-evm = { git = "https://github.com/paradigmxyz/reth", rev = "9d25749e3182bcefabb9920179bc91e64c4291d3", version = "2.4.1" }
+reth-evm-ethereum = { git = "https://github.com/paradigmxyz/reth", rev = "9d25749e3182bcefabb9920179bc91e64c4291d3", version = "2.4.1" }
+
+## async
+async-trait = "0.1.64"
+tokio = { version = "1.18", features = ["full"] }
+tokio-stream = { version = "0.1", features = ["sync"] }
+
+## misc
+anyhow = "1.0.70"
+bon = "3.9.3"
+futures = "0.3"
+
+## logging
+tracing = "0.1.37"
+tracing-subscriber = "0.3.16"
