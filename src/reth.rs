@@ -22,13 +22,14 @@ pub type RethTransactionPool = Pool<
 >;
 
 /// Reth's P2P stack wrapper.
+#[derive(Clone)]
 pub struct RethP2P {
-    /// Reth transactions pool.
+    /// Reth transactions pool. See alias [`RethTransactionPool`].
     pub pool: RethTransactionPool,
     _net_handle: NetworkHandle<EthNetworkPrimitives>,
 }
 
-/// Configurator for [`PearTower`].
+/// Configurator for [`RethP2P`].
 #[derive(bon::Builder)]
 pub struct RethP2PConfig {
     #[builder(default = reth_network::config::rng_secret_key())]
